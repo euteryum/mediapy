@@ -1,3 +1,7 @@
+import os
+from pathlib import Path
+
+
 ## Private methods
 def _pathExists(filePath):
 	return os.path.exists(filePath)

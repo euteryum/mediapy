@@ -1,5 +1,7 @@
 '''
-C:\\Users\\minse\\Desktop\\Scripts\\framesToMovie.py
+WINDOWS:
+
+LINUX:
 
 Improvements:
 -- Refactor for-loop (memory-inefficient size variable!!!)
@@ -10,7 +12,7 @@ import numpy as np
 from pathlib import Path
 import os
 
-import image.convertToHearts
+# import image.convertToHearts
 
 
 def framesToMovie(parentDir, imgExt, vidName, fps=30):
@@ -30,8 +32,11 @@ def framesToMovie(parentDir, imgExt, vidName, fps=30):
 
     print(f"Size:  {size}")
 
-    pathToVid = os.path.join(parentDir, vidName + '.avi')
-    fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+    # pathToVid = os.path.join(parentDir, vidName + '.avi')
+    # fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+    pathToVid = os.path.join(parentDir, vidName + '.mpv')
+    fourcc = cv2.VideoWriter_fourcc(*'MPG4')
+
     ## VideoWriter(file_path, fourcc, fps, (w, h))
     out = cv2.VideoWriter(pathToVid, fourcc, fps, size)
      
@@ -44,7 +49,7 @@ def framesToMovie(parentDir, imgExt, vidName, fps=30):
 
 def main():
     homeDir = str(Path.home())
-    parentDir = os.path.join(homeDir, 'Videos\\3_sec')
+    parentDir = os.path.join(homeDir, 'Videos')
     imgExt = 'jpg'
     vidName = '3_sec_video'
     framesToMovie(parentDir,imgExt, vidName)
